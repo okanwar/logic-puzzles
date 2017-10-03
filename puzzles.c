@@ -278,7 +278,9 @@ int negate(int x) {
  *  Rating: 2
  */
 int getSignBit(int x) {
-    return 2;
+    int sign = x >> 31; // goes to sign bit of x 
+	int signInverse = (~x + 1) >> 31; //goes to sign bit of negative x
+	return (sign | (signInverse & 1));
 }
 /* 
  * isLessThan - if x < y  then return 1, else return 0 
