@@ -229,7 +229,11 @@ int shiftLogically(int x, int n) {
  *   Rating: 1
  */
 int isShortSized(int x) {
- return 2;
+	int y = x << 16;//drops all significant bits 
+	int z = y >> 16;//z represents if x cannot be represented by 16-bit
+					//two's complement integer
+    return !(x^z);//returns 1 if x can be represented by 16-bit
+				  //two's complement integer and zero otherwise 
 }
 /*
  * isMaxTC - returns 1 if x is the maximum, two's complement number,
