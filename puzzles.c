@@ -255,7 +255,9 @@ int subtractOne(void) {
  *   Rating: 2
  */
 int fitsInNBits(int x, int n) {
-  return 2;
+	int shiftFirst = (~x & (x >> 0x1F)); //inverse of x and shifts it right by 31 bits
+	int shiftSecond = (x & ~(x >> 0x1F));//shiftSecond initalized to x and (not)x shifted 31
+	return !(((shiftFirst) + shiftSecond) >> (n + ~0));//shifted right by (n + ~0), but negated
 }
 /* 
  * negate - return -x 
