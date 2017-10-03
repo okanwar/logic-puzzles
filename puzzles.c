@@ -195,8 +195,13 @@ int swapTwoBytes(int x, int n, int m) {
  *   Max ops: 12
  *   Rating: 2
  */
-int hasAnEvenBitSet(int x) { 
-	return 2;
+int hasAnEvenBitSet(int x) {
+	//int y is a 32 bit mask using 0x55 bytes
+	//0x5 has binary form 0101, which will be true for all even bits
+	int y = (0x55 + (0x55<<8) + (0x55<<16) + (0x55<<24));
+	//x&y returns string of zeroes if there are no even bits
+	//x&y returns a number if there are even bits, double ! necessary to return zero
+	return !(!(x&y));
 }
 /* 
  * shiftLogically - shift x to the right by n, using a logical shift
