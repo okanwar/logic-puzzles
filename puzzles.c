@@ -171,7 +171,19 @@ int wordWithEveryThird(void) {
  *  Rating: 2
  */
 int swapTwoBytes(int x, int n, int m) {
-    return 2;
+    int nShift = n << 3; //multiplies by 8
+	int mShift = m << 3;
+	int copy = 0xFF; //byte copy and paste method
+	int nByte = (copy << nShift) & x; //bytes held here to be swapped
+	int mByte = (copy << mShift) & x;
+	//bytes stored here that won't be swapped
+	int shiftLast = ((~((copy << nShift) | (copy << mShift))) & x); //bytes stored here that
+	//won't be swapped
+	nByte = (nByte >> nShift) & copy; //bytes placed for swap and swaps made
+	nByte <<= mShift;
+	mByte = (mByte >> mShift) & copy;
+	mByte <<= nShift;
+	return shiftLast | mByte | nByte;
 }
 /* 
  * hasAnEvenBitSet - return 1 if any even-numbered bit in word set to 1
