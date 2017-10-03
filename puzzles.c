@@ -224,7 +224,7 @@ int shiftLogically(int x, int n) {
  *   Rating: 1
  */
 int isShortSized(int x) {
-  return 2;
+ return 2;
 }
 /*
  * isMaxTC - returns 1 if x is the maximum, two's complement number,
@@ -234,7 +234,15 @@ int isShortSized(int x) {
  *   Rating: 1
  */
 int isMaxTC(int x) {
-  return 2;
+	int y = x + 1;//if x is max#, then x + 1 will wrap around to give min number
+	// Taking y ^ x will give you a bit string of 1111
+	// Negating that gives you a bit string of all 0.
+	// the final variable will return 1 for max
+	// The +!y is needed for the case of inputting -1 
+	// Adding one will produce 0000
+	// doing ^(y with x) will again produce 0000.
+	// This will incorrectly return 1 for -1 Adding !y gives us a correct final result of 0.
+	return !(~((y)^x)+!y);
 }
 /* 
  * subtractOne - return a value of -1 
