@@ -150,7 +150,7 @@ NOTES:
  *   Rating: 1
  */
 int orWithoutOr(int x, int y) {
-  return 2;
+  return ~(~x & ~y);//returns x or y, while leaving the possibility for x and y 
 }
 /* 
  * wordWithEveryThird - return word with every third bit (starting from the LSB) set to 1
