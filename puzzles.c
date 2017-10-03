@@ -243,7 +243,7 @@ int isMaxTC(int x) {
  *   Rating: 1
  */
 int subtractOne(void) {
-  return 2;
+  return ~0x00;//inverts the bits of 0000 0000 to get -1
 }
 /* 
  * fitsInNBits - return 1 if x can be represented as an 
