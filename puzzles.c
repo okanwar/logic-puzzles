@@ -162,7 +162,7 @@ int wordWithEveryThird(void) {
    int x = 0x49;//initializes pattern template
    int y = (x << 9);// shifts the pattern to first bit of third byte
    int z = y + x; //copies pattern
-   return (z << 18) + z; //returns word with every third bit set to zero
+   return (z << 18) + z;
 }
 /* 
  * swapTwoBytes - swaps the nth byte and the mth byte
