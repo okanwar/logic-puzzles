@@ -159,7 +159,10 @@ int orWithoutOr(int x, int y) {
  *   Rating: 1
  */
 int wordWithEveryThird(void) {
-  return 2;
+   int x = 0x49;//initializes pattern template
+   int y = (x << 9);// shifts the pattern to first bit of third byte
+   int z = y + x; //copies pattern
+   return (z << 18) + z; //returns word with every third bit set to zero
 }
 /* 
  * swapTwoBytes - swaps the nth byte and the mth byte
@@ -192,8 +195,8 @@ int swapTwoBytes(int x, int n, int m) {
  *   Max ops: 12
  *   Rating: 2
  */
-int hasAnEvenBitSet(int x) {
-  return 2;
+int hasAnEvenBitSet(int x) { 
+	return 2;
 }
 /* 
  * shiftLogically - shift x to the right by n, using a logical shift
@@ -204,7 +207,12 @@ int hasAnEvenBitSet(int x) {
  *   Rating: 3 
  */
 int shiftLogically(int x, int n) {
-  return 2;
+	int mask = 0x80; //Uses a mask like operator to evaluate bit values
+	mask <<= 24;     //to zero out any ones that come from expanded sign
+	mask &= x;
+	mask >>= n;
+	mask <<= 1;  
+	return (mask ^ (x >>= n));
 }
 // two's comp puzzles
 /* 
