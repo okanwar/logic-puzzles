@@ -1,7 +1,9 @@
 /* 
  * COMP280 (Intro to Computer Systems) - Project 02
  * 
- * Author: ENTER YOUR NAME AND USD ID HERE
+ * Author: Om Kanwar 009088102
+ *
+ * One project buck used, extended deadline 1 day
  * 
  * bits.c - Source file with your solutions to the Lab.
  *          This is the file you will hand in to your instructor.
